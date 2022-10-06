@@ -21,6 +21,11 @@ recognition.addEventListener('result', (e) => {
         .map(result => result.transcript)
         .join('')
         
+    if (recognition.lang === 'ar-EG') {
+        p.style.direction = 'rtl'
+    } else {
+        p.style.direction = 'ltr'
+    }
     p.innerText = transcript
 
     if (e.results[0].isFinal) {
